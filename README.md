@@ -15,3 +15,4 @@ La herramienta QuickUMLS la he incorporado en el propio ejecutable por lo que si
 
 El link de MEGA para el archivo de instalación es: https://mega.nz/file/4WsjwQ4R#P9zvFieqCvAeE-VCeAKZZJtcqfzFellXBbyyaD25hwg
 
+En el archivo de instalacion se encuentra todos los archivos, el ejecutable que se llama user_interface.exe y el resto de carpetas. 
