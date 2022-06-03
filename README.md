@@ -2,7 +2,7 @@
 
 Sistema de deteccion de efectos adversos de medicamentos en textos biomédicos en español
 
-Los scripts de python se encuentran en este repositorio junto con el pdf y doc de este PFG
+Los scripts de python se encuentran en este repositorio. La memoria esta en la carpeta que pone pdf, es un pdf y doc de este PFG
 
 El link del archivo de instalacion esta en el siguiente enlace en MEGA por el tamaño del archivo ya que al transformar los scripts a .exe, las dependencias de los archivos hizo aumentar el tamaño de los archivos aumentaron muchisimo. El instalable sólo se permite en windows, recomiendo utilizar los permisos de administrador para instalarlo y para ejecutarlo.
 
