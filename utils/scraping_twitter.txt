@@ -1,0 +1,44 @@
+#!/usr/bin/env python3  Line 1
+# -*- coding: utf-8 -*- Line 2
+#----------------------------------------------------------------------------
+# Created By  : ROI ARIAS RICO  Line 3
+# PFG 2021/22
+# version ='1.0'
+# ---------------------------------------------------------------------------
+# Ejemplo de minado de tweets---Se ha borrado las claves de twitter
+
+import os
+import snscrape.modules.twitter as sntwitter
+import tweepy
+from pandas import DataFrame
+
+CONSUMER_KEY = ""
+CONSUMER_SECRET = ""
+ACCESS_TOKEN = ""
+ACCESS_TOKEN_SECRET = ""
+
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+api = tweepy.API(auth)
+
+maxTweets = 30000
+
+# Creating list to append tweet data to
+tweets_list = []
+keyword = ('VESTRONIDASA OR VIGABATRINA OR VILANTEROL OR VINBURNINA OR VINDESINA OR VINFLUNINA OR VISMODEGIB '\
+           'OR VOLANESORSEN OR VORAPAXAR OR VORETIGEN OR VORTIOXETINA OR WARFARINA OR XENON OR XILOMETAZOLINA '\
+           'OR XIPAMIDA OR YTRIO OR ZAFIRLUKAST OR ZANAMIVIR OR ZICONOTIDA OR ZOFENOPRIL')
+
+my_list = []
+for i, tweet in enumerate(
+        sntwitter.TwitterSearchScraper(keyword + ' since:2021-01-31 until:2021-03-31 lang:"es" ').get_items()):
+    if i > maxTweets:
+        break
+    my_list.append([tweet.id, tweet.content, tweet.username])
+
+df = DataFrame(my_list, columns=[['id', 'full_text', 'Location']])
+print(df)
+
+df[['id', 'full_text', 'Location']].to_csv(r'./utils/prueba.csv', index=False, mode='a',
+                                           header=not os.path.isfile(r'./utils/prueba.csv'))
+
